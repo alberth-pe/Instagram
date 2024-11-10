@@ -53,11 +53,19 @@
             display: flex;
             flex-wrap: wrap;
             gap: 15px;
+            justify-content: center;
             margin-top: 20px;
         }
 
+        .post-images .image-item {
+            width: 100%;
+            max-width: 300px; /* Fixed width for the images */
+            display: flex;
+            justify-content: center;
+        }
+
         .post-images img {
-            max-width: 100%;
+            width: 100%;
             height: auto;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -74,8 +82,8 @@
                 align-items: center;
             }
 
-            .post-images img {
-                max-width: 90%;
+            .post-images .image-item {
+                width: 90%; /* Slightly smaller size for mobile */
             }
         }
     </style>
@@ -89,7 +97,7 @@
             <div class="post-header">
                 <!-- Información del usuario de cada publicación -->
                 <div class="user-info">
-                    
+                    <span>Posted by: <%= post.user.email %></span>
                 </div>
             </div>
 
