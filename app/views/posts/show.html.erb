@@ -89,7 +89,7 @@
     </style>
 </head>
 <body>
-
+<%= button_to 'Cerrar sesión', destroy_user_session_path, method: :delete %>
 <div class="container">
     <!-- Verificar si hay publicaciones -->
     <% if @posts.present? %>
@@ -110,15 +110,18 @@
             <div class="post-images">
                 <% post.images.each do |image| %>
                     <div class="image-item">
-                        <%= image_tag image, class: 'post-image' %>
+                       <%= image_tag image, class: 'post-image' %>
                     </div>
                 <% end %>
             </div>
+            
+                <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-edit' %>
+                <%= button_to 'Destroy', post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn destroy' %>
             <hr> <!-- Separador entre publicaciones -->
         <% end %>
     <% else %>
         <p>No hay publicaciones disponibles.</p>
     <% end %>
 </div>
-</body>
-</html>
+    </body>
+    </html>

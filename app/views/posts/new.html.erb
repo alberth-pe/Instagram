@@ -128,6 +128,7 @@
         <%= form.submit "Post" %>
       </div>
     <% end %>
+      <%= button_to 'Cerrar sesión', destroy_user_session_path, method: :delete %>
 
   </div>
 
